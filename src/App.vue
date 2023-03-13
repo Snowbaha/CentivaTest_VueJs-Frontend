@@ -2,6 +2,8 @@
   <img alt="Vue Centiva" src="./assets/logo_centiva.png">
 
   <h1>Démo App du test !</h1>
+
+  Confirmation : {{ confirmed }}
   <br>
   <template v-for="state in getStates" :key="state">
     <button @click="displayModal(state)" >Afficher la Modal {{state}}</button>
@@ -9,7 +11,7 @@
 
 
 
-  <modal-component v-if="showModal" @close="showModal = false" :title="title" :state="state" >
+  <modal-component v-if="showModal" :title="title" :state="state" @close="close()" @confirm="confirm()">
     <template v-slot:content>
       {{content}}
     </template>
@@ -31,6 +33,7 @@ export default {
   data() {
     return {
       showModal: false,
+      confirmed: false,
       state: 'info'
     }
   },
@@ -52,6 +55,13 @@ export default {
     displayModal(state) {
       this.showModal = true
       this.state = state
+    },
+    close() {
+      this.showModal = false
+    },
+    confirm() {
+      this.showModal = false
+      this.confirmed = true
     }
   }
 }

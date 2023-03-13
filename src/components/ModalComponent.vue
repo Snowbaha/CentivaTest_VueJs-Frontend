@@ -72,6 +72,13 @@ export default {
       return 'btn btn-' + states[this.state].class
     }
   },
+  watch: {
+    active: function (val) {
+      if (val) {
+        this.$emit('open')
+      }
+    }
+  },
 }
 </script>
 
