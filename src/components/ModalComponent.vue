@@ -133,6 +133,10 @@ export default {
   border-top: 5px solid #313131;
   text-align: left;
 
+  @media (max-width: 640px) {
+    width: 90%;
+  }
+
   &.info{
     border-top-color: $color-accent1-normal;
 
