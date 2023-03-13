@@ -26,7 +26,6 @@ Pour la gestion des icônes : [Font Awesome](https://fontawesome.com/docs/web/us
 
 ## TODO :
 
-* gérer close si clique en dehors du modal
 * gestion du blur sur le fond (pb index?)
 * Footer exemple avec "Ne plus afficher"
 * Gestion du responsive

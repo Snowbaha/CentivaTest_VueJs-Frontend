@@ -11,7 +11,7 @@
 
 
 
-  <modal-component v-if="showModal" :title="title" :state="state" @close="close()" @confirm="confirm()">
+  <modal-component :active="active" :title="title" :state="state" :closeOnOutsideClick="closeOnOutsideClick" @close="close()" @confirm="confirm()">
     <template v-slot:content>
       {{content}}
     </template>
@@ -22,17 +22,33 @@
 import ModalComponent from './components/ModalComponent.vue'
 
 const states = {
-  info: {title: 'Mon modal d\'information (par défaut sans state)', content: 'Contenu à afficher'},
-  success: {title: 'success', content: 'fa-circle-check'},
-  alert: {title: 'alert', content: 'fa-exclamation-triangle'},
-  error: {title: 'error', content: 'fa-exclamation-circle'}
+  info: {
+    title: 'Mon modal d\'information',
+    content: 'Contenu à afficher',
+    closeOnOutsideClick: true
+  },
+  success: {
+    title: 'Félicitations!',
+    content: 'Vous ne pourrez pas fermer en cliquant à l\'extérieur de la modal',
+    closeOnOutsideClick: false
+  },
+  alert: {
+    title: 'Une alerte',
+    content: 'Un message d\'alerte divers',
+    closeOnOutsideClick: true
+  },
+  error: {
+    title: 'Attention!',
+    content: 'Un message erreur divers',
+    closeOnOutsideClick: true
+  }
 }
 
 export default {
   name: 'App',
   data() {
     return {
-      showModal: false,
+      active: false,
       confirmed: false,
       state: 'info'
     }
@@ -46,6 +62,9 @@ export default {
     },
     content(){
       return states[this.state].content;
+    },
+    closeOnOutsideClick(){
+      return states[this.state].closeOnOutsideClick;
     }
   },
   components: {
@@ -53,14 +72,14 @@ export default {
   },
   methods: {
     displayModal(state) {
-      this.showModal = true
+      this.active = true
       this.state = state
     },
     close() {
-      this.showModal = false
+      this.active = false
     },
     confirm() {
-      this.showModal = false
+      this.active = false
       this.confirmed = true
     }
   }

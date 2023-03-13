@@ -1,8 +1,8 @@
 <template>
   <transition name="modal">
-    <div class="modal-mask">
+    <div v-if="active" class="modal-mask"  @click="outsideClick">
       <div  class="modal-wrapper">
-        <div class="modal-container" :class="modalType">
+        <div class="modal-container" ref="modalMask" :class="modalType">
 
           <div class="modal-header">
             <font-awesome-icon class="cross" icon="xmark" @click="$emit('close')" />
@@ -70,6 +70,15 @@ export default {
     },
     buttonClass() {
       return 'btn btn-' + states[this.state].class
+    }
+  },
+  methods: {
+    outsideClick(event) {
+      if (this.closeOnOutsideClick) {
+        if (!this.$refs.modalMask?.contains(event.target)) {
+          this.$emit('close')
+        }
+      }
     }
   },
   watch: {
