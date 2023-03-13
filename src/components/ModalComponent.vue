@@ -148,6 +148,20 @@ export default {
       color: $color-accent6-normal;
     }
   }
+  &.alert{
+    border-top-color: $color-accent8-normal;
+
+    .icon{
+      color: $color-accent8-normal;
+    }
+  }
+  &.error{
+    border-top-color: $color-accent9-normal;
+
+    .icon{
+      color: $color-accent9-normal;
+    }
+  }
 }
 
 .modal-header{

@@ -15,6 +15,10 @@
     <template v-slot:content>
       {{content}}
     </template>
+
+    <template v-if="content === 'Footer personnalisé'" v-slot:footer>
+      Footer personnalisé avec ce que l'on veut (remplace les boutons)
+    </template>
   </modal-component>
 </template>
 
@@ -39,7 +43,7 @@ const states = {
   },
   error: {
     title: 'Attention!',
-    content: 'Un message erreur divers',
+    content: 'Footer personnalisé',
     closeOnOutsideClick: true
   }
 }

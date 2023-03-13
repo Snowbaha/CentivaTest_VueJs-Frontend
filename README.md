@@ -24,11 +24,9 @@ Un exemple de Modal sur la [DOC ici](https://v2.vuejs.org/v2/examples/modal.html
 
 Pour la gestion des icônes : [Font Awesome](https://fontawesome.com/docs/web/use-with/vue/add-icons).
 
-## TODO :
+### Problème connu
 
-* gestion du blur sur le fond (pb index?)
-* Footer exemple avec "Ne plus afficher"
-* Gestion du responsive
+* Gestion du blur sur le fond, je n'ai pas réussi à le faire fonctionner correctement avec un conflit sur les éléments enfants du modal.
 
 
 ## Vue.js commandes
