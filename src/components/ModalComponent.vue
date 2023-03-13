@@ -5,11 +5,12 @@
         <div class="modal-container" :class="modalType">
 
           <div class="modal-header">
-            Croix à mettre
+            <font-awesome-icon class="cross" icon="xmark" @click="$emit('close')" />
           </div>
 
           <div class="modal-body">
-            Icone à mettre
+            <font-awesome-icon class="icon" icon="fa-solid fa-circle-info" />
+<!--            <font-awesome-icon :icon="icon" />-->
             <span class="title">{{ title }}</span>
             <slot name="content">
               default body
@@ -34,10 +35,10 @@
 </template>
 
 <script>
-const states = {info: {class: 'info', icon: 'info'},
-                success: {class: 'green', icon: 'check_circle'},
-                alert: {class: 'alert', icon: 'check_circle'},
-                error: {class: 'red', icon: 'error'}}
+const states = {info: {class: 'info', icon: 'circle-info'},
+                success: {class: 'green', icon: 'circle-check'},
+                alert: {class: 'alert', icon: 'exclamation-triangle'},
+                error: {class: 'red', icon: 'exclamation-circle'}}
 
 export default {
   name: 'ModalComponent',
@@ -120,12 +121,25 @@ export default {
 .modal-header{
   padding: 12px;
 
+  .cross{
+    float: right;
+    cursor: pointer;
+  }
+
 }
 
 .modal-body {
   padding: 0 36px 36px 36px;
   color: $light-text-color;
   font-size: $font-size-base;
+
+  .icon{
+    font-size: 20px;
+    margin-right: 12px;
+    padding: 10px;
+    color: $color-accent1-normal;
+    float: left;
+  }
 
   .title{
     color: $base-text-color;

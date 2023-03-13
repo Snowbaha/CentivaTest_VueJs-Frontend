@@ -22,6 +22,8 @@ la documentation officielle de [Vue.js](https://v3.vuejs.org/guide/introduction.
 
 Un exemple de Modal sur la [DOC ici](https://v2.vuejs.org/v2/examples/modal.html).
 
+Pour la gestion des icônes : [Font Awesome](https://fontawesome.com/docs/web/use-with/vue/add-icons).
+
 
 ## Vue.js commandes
 
