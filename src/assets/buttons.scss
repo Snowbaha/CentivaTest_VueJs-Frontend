@@ -1,0 +1,78 @@
+@import "../assets/_variables.scss";
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+  &:hover {
+    border-color: #dae0e5;
+    cursor: pointer;
+  }
+}
+
+.btn-default {
+  color: #212529;
+  background-color: #fff;
+  border-color: #ccc;
+
+  &:hover {
+    color: #212529;
+    background-color: #e2e6ea;
+  }
+}
+
+
+.btn-info {
+  color: #FFF;
+  background-color: $color-accent1-normal;
+  border-color: #ccc;
+
+    &:hover {
+        color: $color-night-gray9;
+        background-color: $color-accent1-dark;
+    }
+}
+
+.btn-alert {
+  color: #FFF;
+  background-color: $color-accent8-normal;
+  border-color: #ccc;
+
+    &:hover {
+        color: $color-night-gray9;
+        background-color: $color-accent8-dark;
+    }
+}
+
+.btn-success {
+  color: #FFF;
+  background-color: $color-accent6-normal;
+  border-color: #ccc;
+
+    &:hover {
+        color: $color-night-gray9;
+        background-color: $color-accent6-dark;
+    }
+}
+
+.btn-danger {
+  color: #FFF;
+  background-color: $color-accent9-normal;
+  border-color: #ccc;
+
+    &:hover {
+        color: $color-night-gray9;
+        background-color: $color-accent9-normal;
+    }
+}

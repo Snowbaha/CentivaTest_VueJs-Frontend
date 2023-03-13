@@ -1,6 +1,15 @@
 <template>
   <img alt="Vue Centiva" src="./assets/logo_centiva.png">
-  <modal-component title="Titre à afficher" />
+
+  <br>
+
+  <button @click="showModal = true">Afficher la Modal (Wip)</button>
+
+  <modal-component v-if="showModal" @close="showModal = false" title="Titre à afficher" >
+    <template v-slot:content>
+      <p>Contenu à afficher</p>
+    </template>
+  </modal-component>
 </template>
 
 <script>
@@ -8,6 +17,11 @@ import ModalComponent from './components/ModalComponent.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      showModal: false
+    }
+  },
   components: {
     ModalComponent
   }
