@@ -1,7 +1,7 @@
 <template>
   <img alt="Vue Centiva" src="./assets/logo_centiva.png">
 
-  <h1>Démo App du test !</h1>
+  <h1>Démo App du test de Julien S. !</h1>
 
   Confirmation : {{ confirmed }}
   <br>
