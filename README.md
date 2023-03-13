@@ -24,6 +24,14 @@ Un exemple de Modal sur la [DOC ici](https://v2.vuejs.org/v2/examples/modal.html
 
 Pour la gestion des icônes : [Font Awesome](https://fontawesome.com/docs/web/use-with/vue/add-icons).
 
+## TODO :
+
+* gérer close si clique en dehors du modal
+* gestion du blur sur le fond (pb index?)
+* Footer exemple avec "Ne plus afficher"
+* Emettre un "Open" et "Confirm"
+* Gestion du responsive
+
 
 ## Vue.js commandes
 

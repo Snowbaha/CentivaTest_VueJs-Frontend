@@ -9,12 +9,12 @@
           </div>
 
           <div class="modal-body">
-            <font-awesome-icon class="icon" icon="fa-solid fa-circle-info" />
-<!--            <font-awesome-icon :icon="icon" />-->
-            <span class="title">{{ title }}</span>
-            <slot name="content">
-              default body
-            </slot>
+            <font-awesome-icon class="icon" :icon="icon" />
+
+            <div>
+              <span class="title">{{ title }}</span>
+              <p><slot name="content"></slot></p>
+            </div>
           </div>
 
           <div class="modal-footer">
@@ -22,7 +22,7 @@
               <button class="btn btn-default" @click="$emit('close')">
                 Annuler
               </button>
-              <button class="btn btn-info" @click="$emit('confirm')">
+              <button :class="buttonClass" @click="$emit('confirm')">
                 Confirmer
               </button>
             </slot>
@@ -35,10 +35,10 @@
 </template>
 
 <script>
-const states = {info: {class: 'info', icon: 'circle-info'},
-                success: {class: 'green', icon: 'circle-check'},
-                alert: {class: 'alert', icon: 'exclamation-triangle'},
-                error: {class: 'red', icon: 'exclamation-circle'}}
+const states = {info: {class: 'info', icon: 'fa-circle-info'},
+                success: {class: 'success', icon: 'fa-circle-check'},
+                alert: {class: 'alert', icon: 'fa-exclamation-triangle'},
+                error: {class: 'error', icon: 'fa-exclamation-circle'}}
 
 export default {
   name: 'ModalComponent',
@@ -66,7 +66,10 @@ export default {
       return 'modal ' + states[this.state].class
     },
     icon() {
-      return states[this.state].icon
+      return 'fa-solid ' + states[this.state].icon
+    },
+    buttonClass() {
+      return 'btn btn-' + states[this.state].class
     }
   },
 }
@@ -90,6 +93,7 @@ export default {
   background-color:$color-night-gray9;
   box-shadow: 0 15px 6px  0 rgba(53, 64, 82, 0.14);
   //filter: blur(5px);
+  //backdrop-filter: blur(15px);
   opacity: 0.7;
   display: table;
   transition: opacity 0.3s ease;
@@ -115,6 +119,18 @@ export default {
 
   &.info{
     border-top-color: $color-accent1-normal;
+
+    .icon{
+      color: $color-accent1-normal;
+      background: $color-accent1-lighter;
+    }
+  }
+  &.success{
+    border-top-color: $color-accent6-normal;
+
+    .icon{
+      color: $color-accent6-normal;
+    }
   }
 }
 
@@ -132,14 +148,17 @@ export default {
   padding: 0 36px 36px 36px;
   color: $light-text-color;
   font-size: $font-size-base;
+  display: flex;
+
 
   .icon{
     font-size: 20px;
     margin-right: 12px;
     padding: 10px;
-    color: $color-accent1-normal;
-    float: left;
+    border-radius: 50%;
   }
+
+
 
   .title{
     color: $base-text-color;
